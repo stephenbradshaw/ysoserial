@@ -120,7 +120,7 @@ $ java -cp ysoserial.jar ysoserial.exploit.RMIRegistryExploit myhost 1099 Common
 
 This repositories `pom.xml` has been updated to work with more up to date versions of Maven. 
 
-I used `3.9.61` and Java 11 (later Java versions may not work). I set the alternate JDK from the command line like so:
+I used Maven `3.9.61` and Java 11 (later Java versions may not work). I set the alternate JDK from the command line like so:
 
 ```
 $ export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11-temurin/Contents/Home
